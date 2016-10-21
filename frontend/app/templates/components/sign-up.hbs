@@ -1,0 +1,84 @@
+
+<article>
+<form class="form-horizontal">
+<fieldset>
+
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Title</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="radios-0">
+      {{#radio-button name="user.title" value="Mr" groupValue="user.title"}}
+      Mr
+      {{/radio-button}}
+    </label> 
+    <label class="radio-inline" for="radios-1">
+      {{#radio-button name="user.title" value="Mr" groupValue="user.title"}}
+      Ms
+      {{/radio-button}}
+    </label>
+  </div>
+</div>
+
+<!-- First Name -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">First Name</label>  
+  <div class="col-md-4">
+  {{input id="user.first_name" name="user.first_name" placeholder="john" value=user.first_name}}
+  <span class="help-block">help</span>  
+  </div>
+</div>
+
+<!-- Last Name -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Last Name</label>  
+  <div class="col-md-4">
+  {{input id="user.last_name" name="user.last_name" placeholder="doe" value=user.last_name}}
+  <span class="help-block">help</span>  
+  </div>
+</div>
+
+<!-- Email -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Email</label>  
+  <div class="col-md-4">
+  {{input id="user.email" name="user.email" placeholder="doe" value=user.email}}
+  <span class="help-block">
+    {{#each user.errors.email as |error|}}
+    <div style="background: red">{{error.message}}</div>
+    {{/each}}
+  </span>  
+  </div>
+</div>
+
+<!-- Password -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Password</label>
+  <div class="col-md-4">
+  {{input id="user.password" name="user.password" type="password" placeholder="Enter password" value=user.password}}
+    <span class="help-block">help</span>
+  </div>
+</div>
+
+<!-- Confirm password -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Confirm Password</label>
+  <div class="col-md-4">
+  {{input id="user.confirm_password" name="user.confirm_password" type="password" placeholder="Confirm password" value=user.confirm_password}}
+    <span class="help-block">help</span>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="button" name="submit" class="btn btn-primary" {{action "doSignUp"}}>Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</article>
+
