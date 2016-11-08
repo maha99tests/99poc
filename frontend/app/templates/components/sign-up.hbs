@@ -5,28 +5,16 @@
 
 
 <!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="radios">Title</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="radios-0">
-      {{#radio-button name="user.title" value="Mr" groupValue="user.title"}}
-      Mr
-      {{/radio-button}}
-    </label> 
-    <label class="radio-inline" for="radios-1">
-      {{#radio-button name="user.title" value="Mr" groupValue="user.title"}}
-      Ms
-      {{/radio-button}}
-    </label>
-  </div>
-</div>
-
 <!-- First Name -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">First Name</label>  
   <div class="col-md-4">
   {{input id="user.first_name" name="user.first_name" placeholder="john" value=user.first_name}}
-  <span class="help-block">help</span>  
+  <span class="help-block">
+    {{#each user.errors.first_name as |error|}}
+    <div style="color: red">{{error.message}}</div>
+    {{/each}}
+  </span>  
   </div>
 </div>
 
@@ -35,7 +23,11 @@
   <label class="col-md-4 control-label" for="textinput">Last Name</label>  
   <div class="col-md-4">
   {{input id="user.last_name" name="user.last_name" placeholder="doe" value=user.last_name}}
-  <span class="help-block">help</span>  
+  <span class="help-block">
+    {{#each user.errors.last_name as |error|}}
+    <div style="color: red">{{error.message}}</div>
+    {{/each}}
+  </span>  
   </div>
 </div>
 
@@ -46,7 +38,7 @@
   {{input id="user.email" name="user.email" placeholder="doe" value=user.email}}
   <span class="help-block">
     {{#each user.errors.email as |error|}}
-    <div style="background: red">{{error.message}}</div>
+    <div style="color: red">{{error.message}}</div>
     {{/each}}
   </span>  
   </div>
@@ -57,7 +49,11 @@
   <label class="col-md-4 control-label" for="passwordinput">Password</label>
   <div class="col-md-4">
   {{input id="user.password" name="user.password" type="password" placeholder="Enter password" value=user.password}}
-    <span class="help-block">help</span>
+    <span class="help-block">
+      {{#each user.errors.password as |error|}}
+      <div style="color: red">{{error.message}}</div>
+      {{/each}}
+    </span>
   </div>
 </div>
 
@@ -65,8 +61,12 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="passwordinput">Confirm Password</label>
   <div class="col-md-4">
-  {{input id="user.confirm_password" name="user.confirm_password" type="password" placeholder="Confirm password" value=user.confirm_password}}
-    <span class="help-block">help</span>
+  {{input id="user.confirm_password" name="user.confirm_password" type="password" placeholder="Confirm password" value=user.password_confirmation}}
+    <span class="help-block">
+      {{#each user.errors.password_confirmation as |error|}}
+      <div style="color: red">{{error.message}}</div>
+      {{/each}}
+    </span>
   </div>
 </div>
 

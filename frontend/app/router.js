@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('signup');
+  this.route('send_confirmation_email');
 });
 
 export default Router;

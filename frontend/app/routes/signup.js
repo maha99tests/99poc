@@ -8,6 +8,7 @@ export default Ember.Route.extend({
       last_name: "",
       email: "",
       password: "",
+      password_confirmation: "",
     });
   },
   actions: {
