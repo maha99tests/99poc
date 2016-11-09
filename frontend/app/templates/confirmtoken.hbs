@@ -1,0 +1,14 @@
+{{#if confirmation_updated }}
+    {{#if model.confirmation.user_confirmed }}
+        {{#if model.user.first_name }}
+            <h1>Hey {{ model.user.first_name }}, You're good to go!</h1>
+
+            <p>Login to the 99 Tests portal</p>
+        {{/if}}
+    {{else}}
+        <h1>Confirmation link is not valid</h1>
+        <p>The confirmation link is not valid, please contact support@99tests.com</p>
+    {{/if}}
+{{else}}
+    <h1>Confirming User</h1>
+{{/if}}

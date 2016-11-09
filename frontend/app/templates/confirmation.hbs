@@ -1,0 +1,18 @@
+<article>
+{{#if confirmation_processed}}
+{{#if model.confirmation.confirmation_sent }}
+<h1>Confirm Email</h1>
+
+<h2>Almost there {{ model.user.first_name }}</h2>
+
+<p>We've sent a confirmation mail to {{ model.user.email }}, please check your inbox and click on the confirmation link to access your 99 Tests account</p>
+{{else}}
+<h1>Couldn't send the confirmation email</h1>
+
+<p>We faced an issue with your confirmation email. Please contact support@99tests.com to resolve the issue.</p>
+{{/if}}
+{{else}}
+Sending confirmation mail
+{{/if}}
+</article>
+

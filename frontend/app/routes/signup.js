@@ -14,7 +14,10 @@ export default Ember.Route.extend({
   actions: {
     persist() {
       console.log(this.currentModel.get("first_name"));
-      this.currentModel.save();
+      var self=this;
+      this.currentModel.save().then(function() {
+        self.transitionTo('confirmation', self.currentModel.get("id"));
+      });
     }
   }
 });
